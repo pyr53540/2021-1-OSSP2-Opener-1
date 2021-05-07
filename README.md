@@ -4,6 +4,8 @@
 webstore
 
 
+<!DOCTYPE html>
+
 <html>
 
 <head>
