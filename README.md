@@ -16,7 +16,7 @@ webstore
 
 <body>
 
-         <a href="gs://opensw-opener.appspot.com/">store</a>
+         <a href="https://console.firebase.google.com/u/1/project/opensw-opener/storage/opensw-opener.appspot.com/files">store</a>
 
 </body>
 
