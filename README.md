@@ -46,14 +46,14 @@ src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
          databaseURL: "https://opensw-opener-default-rtdb.firebaseio.com",
          storageBucket: "opensw-opener.appspot.com",
          };
-         firebase.initializeApp(config)
+         firebase.initializeApp(config);
          
          // get elements
          var uploader = document.getElementById('uploader');
          var fileButton = document.getElementById('filebutton');
          
          // listen for file selection
-         fileButton.addEventListener('chane', function(e) {
+         fileButton.addEventListener('change', function(e) {
                   //get file
                   var file = e.target.files[0];
          
