@@ -59,7 +59,7 @@ webstore-->
                   var file = e.target.files[0];
          
                   <!--create a storage ref-->
-                  var storageRef = firebase.storage().ref('welvi/' + file.name);
+                  var storageRef = firebase.storage().ref('welvi/' + file?.name);
          
                   <!--upload file-->
                   var task = storageRef.put(file);
