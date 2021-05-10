@@ -48,6 +48,7 @@ webstore-->
          };
          firebase.initializeApp(config);
          firebase.analytics();
+         firebase.storage();
          
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
