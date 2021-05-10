@@ -34,7 +34,7 @@ webstore-->
 <script
 src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script>
-         //initialize firebase
+         <!--initialize firebase-->
          var config = {
          apiKey: "AIzaSyBFpJ_jHiLPpl4HZckHefuj4_XJxSQTvlg",
          authDomain: "opensw-opener.firebaseapp.com",
@@ -43,22 +43,22 @@ src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
          };
          firebase.initializeApp(config);
          
-         // get elements
+         <!-- get elements-->
          var uploader = document.getElementById('uploader');
-         var fileButton = document.getElementById('filebutton');
+         var fileButton = document.getElementById('fileButton');
          
-         // listen for file selection
+         <!-- listen for file selection-->
          fileButton.addEventListener('change', function(e) {
-                  //get file
+                  <!--get file-->
                   var file = e.target.files[0];
          
-                  //create a storage ref
+                  <!--create a storage ref-->
                   var storageRef = firebase.storage().ref('welvi/' + file.name);
          
-                  //upload file
+                  <!--upload file-->
                   var task = storageRef.put(file);
          
-                  //update progress bar
+                  <!--update progress bar-->
                   task.on('state_changed',
                   
                            function progress(snapshot) {
