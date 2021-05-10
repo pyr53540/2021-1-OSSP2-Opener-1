@@ -3,11 +3,13 @@
 
 webstore
 
+<!DOCTYPE html>
+
 <html>
 
 <head>
          <meta charset="utf-8">
-         <title>firebase web</title> 
+         <title>welvi store</title> 
          <style media="screen">
                   body{                     
                   display: flex;
