@@ -37,7 +37,7 @@ webstore
 <input type="file" value="upload" id="fileButton" />
 
 <script
-src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script>
          //initialize firebase
          var config = {
