@@ -33,7 +33,7 @@ webstore-->
 
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
-import 'firebase/storage';
+<script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-storage.js"></script>
 <script>
          <!--initialize firebase-->
          var config = {
