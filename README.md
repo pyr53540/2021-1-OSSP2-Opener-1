@@ -9,7 +9,7 @@ webstore
 <html>
 
 <head>
-         <meta charset="utf-8>
+         <meta charset="utf-8">
          <title>firebase web</title> 
          <style media="screen">
                   body{                     
