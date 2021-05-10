@@ -3,7 +3,6 @@
 
 webstore
 
-
 <!DOCTYPE html>
 
 <html>
@@ -35,10 +34,10 @@ webstore
 <body>
 
 <progress value="0" max="100" id="uploader">0%</progress>
-<input type="file" value="upload" id"fileButton" />
+<input type="file" value="upload" id="fileButton" />
 
 <script
-src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></xcript>
+src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 <script>
          //initialize firebase
          var config = {
@@ -55,32 +54,32 @@ src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></xcript>
          
          // listen for file selection
          fileButton.addEventListener('chane', function(e) {
-         //get file
-         var file = e.target.files[0];
+                  //get file
+                  var file = e.target.files[0];
          
-         //create a storage ref
-         var storageRef = firebase.storage().ref('welvi/' + file.name);
+                  //create a storage ref
+                  var storageRef = firebase.storage().ref('welvi/' + file.name);
          
-         //upload file
-         var task = storageRef.put(file);
+                  //upload file
+                  var task = storageRef.put(file);
          
-         //update progress bar
-         task.on('state_changed',
+                  //update progress bar
+                  task.on('state_changed',
                   
-                  function progress(snapshot) {
-                  var percentage = snapshot.bytesTransferred / snapshot.totalBytes * 100;
-                  uploader.value = percentage;
-                  },
+                           function progress(snapshot) {
+                           var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                           uploader.value = percentage;
+                           },
                   
-                  function error(err) {
+                           function error(err) {
                   
-                  },
+                           },
                   
-                  function complete() {
+                           function complete() {
                   
-                  }
+                           }
                   
-         );
+                  );
          });
 
 </script>
