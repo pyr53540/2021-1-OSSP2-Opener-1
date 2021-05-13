@@ -63,14 +63,7 @@ webstore-->
          });
          res.items.forEach(function(itemRef) {
          });
-         }).catch(function(error) {
-         <!--switch (error.code) {
-                  case 'storage/object-not-found':
-                  // File doesn't exist
-                  console.log('file not exist');
-                  break;
-         }-->
-         }
+         }).catch(function(error) { }
          
          function displayFolder(folderRef) {
          folderRef.getDownloadURL().then(function(url) {
