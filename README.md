@@ -64,11 +64,11 @@ webstore-->
          res.items.forEach(function(itemRef) {
          });
          }).catch(function(error) {
-         switch (error.code) {
+         <!--switch (error.code) {
                   case 'storage/object-not-found':
                   // File doesn't exist
                   console.log('file not exist');
-                  break;
+                  break;-->
          }
          
          function displayFolder(folderRef) {
