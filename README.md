@@ -61,9 +61,8 @@ webstore-->
          <!-- You may call listAll() recursively on them.-->
          displayFolder(folderRef);
          });
-         res.items.forEach(function(itemRef) {
-         });
-         }).catch(function(error) { }
+         res.items.forEach(function(itemRef) { });
+         }).catch(function(error) { });
          
          function displayFolder(folderRef) {
          folderRef.getDownloadURL().then(function(url) {
