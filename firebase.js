@@ -23,8 +23,8 @@ var i=0;
 
 storageRef.child('welvi/library/').listAll().then(function(result){
 
-result.items.forEach(function(imageRef){
+   result.items.forEach(function(imageRef){
 
-   console.log("Image reference" + imageRef.toString());
-});
+      console.log("Image reference" + imageRef.toString());
+   });
 });
