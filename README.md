@@ -51,6 +51,7 @@ webstore-->
          
          <!-- list view-->
          var storage = firebase.storage();
+         var storageRef = storage.ref();
          var listRef = storageRef.child('welvi/library/uid');
          var folderRef = storageRef.child('welvi/library');
          
