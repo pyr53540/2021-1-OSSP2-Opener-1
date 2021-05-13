@@ -14,8 +14,17 @@ firebase.initializeApp(firebaseConfig);
 var storage = firebase.storage();
 var storageRef = storage.ref();
 
+//var libraryRef = storageRef.child('welvi/library');
+//var apps = [];
+
 $('#List').find('tbody').html('')
 
 var i=0;
 
-storageRef.child('welvi/library/').listAll()
+storageRef.child('welvi/library/').listAll().then(function(result){
+
+result.items.forEach(function(imageRef){
+
+   console.log("Image reference" + imageRef.toString());
+});
+});
