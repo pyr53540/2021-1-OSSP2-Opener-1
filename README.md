@@ -50,19 +50,35 @@ webstore-->
          firebase.analytics();
          
          <!-- list view-->
+         var storage = firebase.storage();
          var listRef = storageRef.child('welvi/library/uid');
+         var folderRef = storageRef.child('welvi/library');
          
          <!-- Find all the prefixes and items.-->
          listRef.listAll().then(function(res) {
          res.prefixes.forEach(function(folderRef) {
          <!-- All the prefixes under listRef.-->
          <!-- You may call listAll() recursively on them.-->
+         displayFolder(folderRef);
          });
-          res.items.forEach(function(itemRef) {
+         res.items.forEach(function(itemRef) {
          });
          }).catch(function(error) {
-         <!-- Uh-oh, an error occurred!-->
+         switch (error.code) {
+                  case 'storage/object-not-found':
+                  // File doesn't exist
+                  console.log('file not exist');
+                  break;
          });
+         
+         function displayFolder(folderRef) {
+         folderRef.getDownloadURL().then(function(url) {
+         // TODO: Display the image on the UI
+         console.log(res);
+         }).catch(function(error) {
+         // Handle any errors
+         });
+         }
          
          <!-- download file-->
          
