@@ -69,7 +69,7 @@ webstore-->
                   // File doesn't exist
                   console.log('file not exist');
                   break;
-         });
+         }
          
          function displayFolder(folderRef) {
          folderRef.getDownloadURL().then(function(url) {
