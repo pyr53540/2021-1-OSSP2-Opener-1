@@ -68,7 +68,8 @@ webstore-->
                   case 'storage/object-not-found':
                   // File doesn't exist
                   console.log('file not exist');
-                  break;-->
+                  break;
+         }-->
          }
          
          function displayFolder(folderRef) {
