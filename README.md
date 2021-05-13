@@ -49,6 +49,24 @@ webstore-->
          firebase.initializeApp(config);
          firebase.analytics();
          
+         <!-- list view-->
+         var listRef = storageRef.child('welvi/library/uid');
+         
+         <!-- Find all the prefixes and items.-->
+         listRef.listAll().then(function(res) {
+         res.prefixes.forEach(function(folderRef) {
+         <!-- All the prefixes under listRef.-->
+         <!-- You may call listAll() recursively on them.-->
+         });
+          res.items.forEach(function(itemRef) {
+         });
+         }).catch(function(error) {
+         <!-- Uh-oh, an error occurred!-->
+         });
+         
+         <!-- download file-->
+         
+         
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
          var fileButton = document.getElementById('fileButton');
