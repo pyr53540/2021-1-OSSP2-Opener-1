@@ -17,7 +17,7 @@ var storageRef = storage.ref();
 //var libraryRef = storageRef.child('welvi/library');
 //var apps = [];
 
-$('#List').find('tbody').html('')
+$('#List').find('tbody').html('');
 
 var i=0;
 
@@ -25,6 +25,25 @@ storageRef.child('welvi/library/').listAll().then(function(result){
 
    result.items.forEach(function(imageRef){
 
-      console.log("Image reference" + imageRef.toString());
+      //console.log("Image reference" + imageRef.toString());
+      i++;
+      displayImage(i, imageRef);
    });
 });
+
+function displayImage(row, images){
+images.getDownloadURL.then(function(url){
+console.log(url);
+   
+   let new_html = '';
+   new_html += '<tr>';
+   new_html += '<td>';
+   new_html == row;
+   new_html += '</td>';
+   new_html += '<td>';
+   new_html += '<img src="'+url+'" sidth="100px" style="float:right">';
+   new_html += '</td>';
+   new_html += '</tr>';
+   $('#List').find('tbody').append(new_html);
+});
+}
