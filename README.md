@@ -3,6 +3,9 @@
 동국대학교 컴퓨터공학과 2021-1 공개SW프로젝트 1조 Opener
 webstore-->
 <head>
+         <a href="https://pyr53540.github.io" id="link">download</a>
+         <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
+         <link rel="shortcut icon" href="#">
          <meta charset="utf-8">
          <title>welvi store</title> 
          <style media="screen">
@@ -49,6 +52,50 @@ webstore-->
          firebase.initializeApp(config);
          firebase.analytics();
          
+          <!-- download file-->
+         var storage = firebase.storage();
+         var storageRef = storage.ref();
+         var listRef = storageRef.child('welvi/library');
+         
+         <!-- Find all the prefixes and items.-->
+         listRef.listAll().then(function(res) {
+         res.items.forEach(function(itemRef) { 
+                  console.log(itemRef);
+                  itemRef.getDownloadURL().then(function(url) {
+                           console.log('File available at', url);
+  document.getElementById("link").innerHTML = itemRef.name;
+  document.getElementById("link").href = url;                         
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function(event) { var blob = xhr.response; };
+                  });
+  xhr.open('GET', url);
+  xhr.send();
+  
+         }).catch(function(error) { 
+         // A full list of error codes is available at
+         // https://firebase.google.com/docs/storage/web/handle-errors
+  switch (error.code) {
+    case 'storage/object-not-found':
+      // File doesn't exist
+      break;
+
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      break;
+
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+
+    case 'storage/unknown':
+      // Unknown error occurred, inspect the server response
+      break;
+  }
+         });
+
+         }).catch(function(error) {  });
+         
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
          var fileButton = document.getElementById('fileButton');
@@ -59,7 +106,7 @@ webstore-->
                   var file = e.target.files[0];
          
                   <!--create a storage ref-->
-                  var storageRef = firebase.storage().ref('welvi/withhold/' + file?.name);
+                  var storageRef = firebase.storage().ref('welvi/withhold/' + file.name);
          
                   <!--upload file-->
                   var task = storageRef.put(file);
