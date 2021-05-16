@@ -64,6 +64,7 @@ webstore-->
                   itemRef.getDownloadURL().then(function(url) {
                            console.log('File available at', url);
   document.getElementById("link").innerHTML = itemRef.name;
+  document.getElementById("link").innerHTML += "<br>";
   document.getElementById("link").href = url;                         
   const xhr = new XMLHttpRequest();
   xhr.responseType = 'blob';
