@@ -38,6 +38,17 @@ webstore-->
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+         
+<script>
+function myCallback(json){
+   window.result = json;
+}
+</script>
+<script src="https://firebasestorage.googleapis.com/v0/b/opensw-opener.appspot.com/o/welvi%2Flibrary"></script>
+myCallback({
+   title : 'hello world!'
+})
+         
 <script>
          <!--initialize firebase-->
          var config = {
@@ -79,13 +90,7 @@ webstore-->
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
                                     xhr.open('GET', url);
-         
-                                    xhr.onreadystatechange = function () {
-                                             if (this.readyState == 4) {
-                                                      alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseType);
-                                             }
-                                    };
-                                    
+
                                     xhr.send();
                                     i++;
                                     });
