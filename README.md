@@ -66,11 +66,13 @@ webstore-->
                                     console.log('File available at', url);
                                     //document.getElementById("link").innerHTML = itemRef.name;
                                     //<a href="https://pyr53540.github.io" id="link">download list</a>
-                                    var head = document.getElementById("link");
-                                    head.insertAdjacentHTML('afterend','<a href="',url,'" id="',i,'">',itemRef.name,'</a>');
                                     
-                                    document.getElementById(i).innerHTML += "<br>";
-                                    document.getElementById(i).href = url;                         
+                                    var head = document.getElementById("link");
+                                    head.insertAdjacentHTML('afterend','<a href="',url,'" id="',i,'">',itemRef.name,'</a><br>');                            
+         
+                                    //document.getElementById("link").innerHTML += "<br>";
+                                    //document.getElementById("link").href = url;  
+         
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
