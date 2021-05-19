@@ -59,7 +59,7 @@ webstore-->
          
          <!-- Find all the prefixes and items.-->
          listRef.listAll().then(function(res) {
-                  int i=0;
+                  var i=0;
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
                            itemRef.getDownloadURL().then(function(url) {
