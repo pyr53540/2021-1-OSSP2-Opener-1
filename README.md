@@ -79,6 +79,13 @@ webstore-->
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
                                     xhr.open('GET', url);
+         
+                                    xhr.onreadystatechange = function () {
+                                    if (this.readyState == 4) {
+                                             alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+                                             }
+                                    };
+                                    
                                     xhr.send();
                                     i++;
                                     });
