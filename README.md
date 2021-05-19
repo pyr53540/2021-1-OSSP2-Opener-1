@@ -81,8 +81,8 @@ webstore-->
                                     xhr.open('GET', url);
          
                                     xhr.onreadystatechange = function () {
-                                    if (this.readyState == 4) {
-                                             alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+                                             if (this.readyState == 4) {
+                                                      alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseType);
                                              }
                                     };
                                     
