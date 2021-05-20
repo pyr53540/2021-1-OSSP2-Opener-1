@@ -76,7 +76,7 @@ webstore-->
                                     var index = String(i);
                                     head.insertAdjacentHTML('afterend','<a href="',url,'" id="',index,'">',itemRef.name,'</a><br>');                            
                                     
-                                    document.getElementById(i).innerHTML = itemRef.name;
+                                    document.getElementById(index).innerHTML = itemRef.name;
                                     
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
