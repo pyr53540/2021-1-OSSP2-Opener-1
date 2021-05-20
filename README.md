@@ -3,7 +3,7 @@
 동국대학교 컴퓨터공학과 2021-1 공개SW프로젝트 1조 Opener
 webstore-->
 <head>
-         <div id="head">download list</div><br>
+         <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
          <meta charset="utf-8">
