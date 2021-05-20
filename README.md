@@ -3,6 +3,13 @@
 동국대학교 컴퓨터공학과 2021-1 공개SW프로젝트 1조 Opener
 webstore-->
 <head>
+         <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+         <h1>Welcome to welvi store</h1>
+         <div id="firebaseui-auth-container"></div>
+         <div id="loader">Loading...</div>
+         
+         
          <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
@@ -37,7 +44,13 @@ webstore-->
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+       
+         
+<!--Authentication-->
+<script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
              
+         
 <script>
          <!--initialize firebase-->
          var config = {
@@ -52,6 +65,47 @@ webstore-->
          };
          firebase.initializeApp(config);
          firebase.analytics();
+         
+         
+         <!--Authentication-->
+         <!--Initialize the FirebaseUI Widget using Firebase.-->
+         var ui = new firebaseui.auth.AuthUI(firebase.auth());
+         
+         var uiConfig = {
+         callbacks: {
+         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+         // User successfully signed in.
+         // Return type determines whether we continue the redirect automatically
+         // or whether we leave that to developer to handle.
+         return true;
+         },
+         uiShown: function() {
+         // The widget is rendered.
+         // Hide the loader.
+         document.getElementById('loader').style.display = 'none';
+         }
+         },
+         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+         signInFlow: 'popup',
+         signInSuccessUrl: '<url-to-redirect-to-on-success>',
+         signInOptions: [
+         // Leave the lines as is for the providers you want to offer your users.
+         //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+         //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+         //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+         //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+         firebase.auth.EmailAuthProvider.PROVIDER_ID,
+         //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+         ],
+         // Terms of service url.
+         tosUrl: '<your-tos-url>',
+         // Privacy policy url.
+         privacyPolicyUrl: '<your-privacy-policy-url>'
+         };
+         
+         <!--The start method will wait until the DOM is loaded.-->
+         ui.start('#firebaseui-auth-container', uiConfig);
+         
          
           <!-- download file-->
          var storage = firebase.storage();
