@@ -75,7 +75,9 @@ webstore-->
                                     var head = document.getElementById("head");
                                     var index = String(i);
                                     head.insertAdjacentHTML('afterend','<a href="',url,'" id="',index,'">',itemRef.name,'</a><br>');                            
-         
+                                    
+                                    document.getElementById(i).innerHTML = itemRef.name;
+                                    
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
