@@ -3,7 +3,6 @@
 동국대학교 컴퓨터공학과 2021-1 공개SW프로젝트 1조 Opener
 webstore-->
 <head>
-         <!--a href="https://pyr53540.github.io" id="link">download</a-->
          <div id="head">download list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
@@ -59,24 +58,18 @@ webstore-->
          var storageRef = storage.ref();
          var listRef = storageRef.child('welvi/library');
          
-         <!-- Find all the prefixes and items.-->
+         <!-- Find all the items.-->
          listRef.listAll().then(function(res) {
                   var i=0;
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
                            itemRef.getDownloadURL().then(function(url) {
                                     console.log('File available at', url);
-                                    //document.getElementById("link").innerHTML = itemRef.name;    
-                                    //document.getElementById("link").innerHTML += "<br>";
-                                    //document.getElementById("link").href = url;  
-         
-                                    //<a href="https://pyr53540.github.io" id="link">download list</a>
                                     
                                     var head = document.getElementById('head');
                                     var index = String(i);
+         
                                     head.insertAdjacentHTML('afterend','<a href="'+url+'" id="'+index+'">'+itemRef.name+'</a><br>');                            
-                                    
-                                    //document.getElementById(index).innerHTML = itemRef.name;
                                     
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
@@ -85,9 +78,6 @@ webstore-->
                                     xhr.send();
                                     i++;
                                     });
-                           //xhr.open('GET', url);
-                           //xhr.send();
-                           //i++;
                   }).catch(function(error) { 
                            // A full list of error codes is available at
                            // https://firebase.google.com/docs/storage/web/handle-errors
