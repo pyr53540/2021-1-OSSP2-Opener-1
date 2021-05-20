@@ -72,11 +72,11 @@ webstore-->
          
                                     //<a href="https://pyr53540.github.io" id="link">download list</a>
                                     
-                                    var head = document.getElementById("head");
+                                    var head = document.getElementById('head');
                                     var index = String(i);
-                                    head.insertAdjacentHTML('afterend','<a href="',url,'" id="',index,'">',itemRef.name,'</a><br>');                            
+                                    head.insertAdjacentHTML('afterend','<a href="'+url+'" id="'+index+'">'+itemRef.name+'</a><br>');                            
                                     
-                                    document.getElementById(index).innerHTML = itemRef.name;
+                                    //document.getElementById(index).innerHTML = itemRef.name;
                                     
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
