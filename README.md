@@ -1,8 +1,16 @@
 <html>
-<!--# 2021-1-OSSP2-Opener-1
-동국대학교 컴퓨터공학과 2021-1 공개SW프로젝트 1조 Opener
-webstore-->
+<!--210525 업로드(완) 다운로드(완) 로그인(미완)-->
 <head>
+         <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+         <h1>Welcome to welvi store</h1>
+         <div id="firebaseui-auth-container"></div>
+         <div id="loader">Loading...</div>
+         
+         
+         <div id="head">theme list</div><br>
+         <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
+         <link rel="shortcut icon" href="#">
          <meta charset="utf-8">
          <title>welvi store</title> 
          <style media="screen">
@@ -30,10 +38,17 @@ webstore-->
 
 <progress value="0" max="100" id="uploader">0%</progress>
 <input type="file" value="upload" id="fileButton" />
-
+         
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+       
+         
+<!--Authentication-->
+<script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+             
+         
 <script>
          <!--initialize firebase-->
          var config = {
@@ -49,33 +64,94 @@ webstore-->
          firebase.initializeApp(config);
          firebase.analytics();
          
-         <!-- list view-->
+         
+         <!--Authentication-->
+         <!--Initialize the FirebaseUI Widget using Firebase.-->
+         var ui = new firebaseui.auth.AuthUI(firebase.auth());
+         
+         var uiConfig = {
+         callbacks: {
+         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+         // User successfully signed in.
+         // Return type determines whether we continue the redirect automatically
+         // or whether we leave that to developer to handle.
+         return true;
+         },
+         uiShown: function() {
+         // The widget is rendered.
+         // Hide the loader.
+         document.getElementById('loader').style.display = 'none';
+         }
+         },
+         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+         signInFlow: 'popup',
+         signInSuccessUrl: '<url-to-redirect-to-on-success>',
+         signInOptions: [
+         // Leave the lines as is for the providers you want to offer your users.
+         //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+         //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+         //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+         //firebase.auth.GithubAuthProvider.PROVIDER_ID,
+         firebase.auth.EmailAuthProvider.PROVIDER_ID,
+         //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+         ],
+         // Terms of service url.
+         tosUrl: '<your-tos-url>',
+         // Privacy policy url.
+         privacyPolicyUrl: '<your-privacy-policy-url>'
+         };
+         
+         <!--The start method will wait until the DOM is loaded.-->
+         ui.start('#firebaseui-auth-container', uiConfig);
+         
+         
+          <!-- download file-->
          var storage = firebase.storage();
          var storageRef = storage.ref();
-         var listRef = storageRef.child('welvi/library/uid');
-         var folderRef = storageRef.child('welvi/library');
+         var listRef = storageRef.child('welvi/library');
          
-         <!-- Find all the prefixes and items.-->
+         <!-- Find all the items.-->
          listRef.listAll().then(function(res) {
-         res.prefixes.forEach(function(folderRef) {
-         <!-- All the prefixes under listRef.-->
-         <!-- You may call listAll() recursively on them.-->
-         displayFolder(folderRef);
-         });
-         res.items.forEach(function(itemRef) { });
-         }).catch(function(error) { });
+                  var i=0;
+                  res.items.forEach(function(itemRef) { 
+                           console.log(itemRef);
+                           itemRef.getDownloadURL().then(function(url) {
+                                    console.log('File available at', url);
+                                    
+                                    var head = document.getElementById('head');
+                                    var index = String(i);
          
-         function displayFolder(folderRef) {
-         folderRef.getDownloadURL().then(function(url) {
-         // TODO: Display the image on the UI
-         console.log(res);
-         }).catch(function(error) {
-         // Handle any errors
-         });
-         }
-         
-         <!-- download file-->
-         
+                                    head.insertAdjacentHTML('afterend','<a href="'+url+'" id="'+index+'">'+itemRef.name+'</a><br>');                            
+                                    
+                                    const xhr = new XMLHttpRequest();
+                                    xhr.responseType = 'blob';
+                                    xhr.onload = function(event) { var blob = xhr.response; };
+                                    xhr.open('GET', url);
+                                    xhr.send();
+                                    i++;
+                                    });
+                  }).catch(function(error) { 
+                           // A full list of error codes is available at
+                           // https://firebase.google.com/docs/storage/web/handle-errors
+                           switch (error.code) {
+                                    case 'storage/object-not-found':
+                                    // File doesn't exist
+                                    break;
+
+                                    case 'storage/unauthorized':
+                                    // User doesn't have permission to access the object
+                                    break;
+
+                                    case 'storage/canceled':
+                                    // User canceled the upload
+                                    break;
+
+                                    case 'storage/unknown':
+                                    // Unknown error occurred, inspect the server response
+                                    break;
+                           }
+                  });
+         }).catch(function(error) {  });
          
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
