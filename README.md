@@ -123,8 +123,9 @@
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
-                                    head.insertAdjacentHTML('afterend','<a href="'+url+'" id="'+index+'">'+itemRef.name+'</a><br>');                            
-                                    
+                                    head.insertAdjacentHTML('afterend','<a href="'+url+'" id="'+index+'" class="button"> <small>Download</small>'+itemRef.name+'</a><br>');   
+                                    //<a href="https://github.com/pages-themes/architect/zipball/master" class="button"> <small>Download</small> .zip file</a>
+         
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
