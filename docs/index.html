@@ -81,7 +81,8 @@
          },
          // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
                   signInFlow: 'popup',
-                  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+                  signInSuccessUrl: 'store.html',
+                  //signInSuccessUrl: '<url-to-redirect-to-on-success>',
                   signInOptions: [
          // Leave the lines as is for the providers you want to offer your users.
          //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -92,8 +93,10 @@
          //firebase.auth.PhoneAuthProvider.PROVIDER_ID
                   ],
          // Terms of service url.
+                  //tosUrl: 'https://pyr53540.github.io/teststore/store.html',
                   tosUrl: '<your-tos-url>',
          // Privacy policy url.
+                  //privacyPolicyUrl: 'https://pyr53540.github.io/teststore/store.html'
                   privacyPolicyUrl: '<your-privacy-policy-url>'
          };
          
