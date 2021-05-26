@@ -36,7 +36,7 @@
 
 <body>
 
-<progress value="0" max="100" id="uploader">0%</progress>
+<br><progress value="0" max="100" id="uploader">0%</progress>
 <input type="file" value="upload" id="fileButton" />
          
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
@@ -123,7 +123,7 @@
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
-                                    head.insertAdjacentHTML('afterend','<br><a class="button" href="'+url+'"> '+itemRef.name+'</a><br>');   
+                                    head.insertAdjacentHTML('afterend','<a class="button" href="'+url+'"> '+itemRef.name+'</a><br>');   
                                     //head.insertAdjacentHTML('afterend','<a href="'+url+'" id="'+index+'" class="button"> '+itemRef.name+'</a><br>');  
                                     //<a href="https://github.com/pages-themes/architect/zipball/master" class="button"> <small>Download</small> .zip file</a>
          
