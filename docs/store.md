@@ -4,7 +4,7 @@
          <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
-         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+         <meta charset="UTF-8" />
          <title>welvi store</title> 
          <style media="screen">
                   body{                     
