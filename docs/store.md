@@ -1,5 +1,5 @@
 <html>
-<!--210525 업로드(완) 다운로드(완) 로그인(미완)-->
+<!--210525 업로드(완) 다운로드(완)-->
 <head>  
          <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
