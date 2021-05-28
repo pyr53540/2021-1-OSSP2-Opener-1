@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html>
 <!--210525 업로드(완) 다운로드(완)-->
 <head>  
          <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
-         <meta charset="utf-8">
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
          <title>welvi store</title> 
          <style media="screen">
                   body{                     
