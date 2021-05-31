@@ -4,7 +4,7 @@
          <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
-         <meta charset="UTF-8" />
+         <meta charset="utf-8">
          <title>welvi store</title> 
          <style media="screen">
                   body{                     
@@ -26,9 +26,7 @@
                   }
          </style>
 </head>
-
 <body>
-
 <progress value="0" max="100" id="uploader">0%</progress>
 <input type="file" value="upload" id="fileButton" />
          
@@ -83,15 +81,12 @@
                                     case 'storage/object-not-found':
                                     // File doesn't exist
                                     break;
-
                                     case 'storage/unauthorized':
                                     // User doesn't have permission to access the object
                                     break;
-
                                     case 'storage/canceled':
                                     // User canceled the upload
                                     break;
-
                                     case 'storage/unknown':
                                     // Unknown error occurred, inspect the server response
                                     break;
@@ -132,9 +127,7 @@
                   
                   );
          });
-
 </script>
-
 </body>
         
 </html>
