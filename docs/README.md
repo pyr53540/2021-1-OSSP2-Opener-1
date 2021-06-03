@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <!--한글 주석-->
   <head>
