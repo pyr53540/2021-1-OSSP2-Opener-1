@@ -1,8 +1,9 @@
 <html>
 <!--210525 업로드(완) 다운로드(완)-->
 <head>  
+         <h1><p style="text-align:center;">Welcome to welvi store</p></h1>
          <meta charset="utf-8">
-         <div id="head">theme list</div><br>
+         <div id="head"><p style="text-align:center;">theme list</p></div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
          <title>welvi store</title> 
@@ -65,7 +66,7 @@
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
-                                    head.insertAdjacentHTML('afterend', '<a href="' + url + '" id="' + index + '">' + itemRef.name + '</a><br>');                            
+                                    head.insertAdjacentHTML('afterend', '<a href="' + url + '" id="' + index + '"><p style="text-align:center;">' + itemRef.name + '</p></a><br>');                            
                                     //<a href="https://github.com/pages-themes/architect/zipball/master" class="button"> <small>Download</small> .zip file</a>
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
