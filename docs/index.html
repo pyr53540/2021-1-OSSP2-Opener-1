@@ -41,10 +41,28 @@
          firebase.initializeApp(config);
          firebase.analytics();
          
+         // Get elements
+         const txtEmail = document.getElenemtById('txtEmail');
+         const txtPassword = document.getElenemtById('txtPassword');
+         const btnLogin = document.getElenemtById('btnLogin');
+         const btnSignUp = document.getElenemtById('btnSignUp');
+         const btnLogout = document.getElenemtById('btnLogout');
+         
          
          <!--Authentication-->
          <!--Initialize the FirebaseUI Widget using Firebase.-->
          var ui = new firebaseui.auth.AuthUI(firebase.auth());
+                  
+         
+         var user = firebase.auth().currentUser;
+         firebase.auth().onAuthStateChanged(function(user) {
+                  if (user) {
+                  // User is signed in.
+                  } else {
+                  // No user is signed in.
+                  }
+         });
+         
          
          var uiConfig = {
          callbacks: {
@@ -84,16 +102,6 @@
          
          <!--The start method will wait until the DOM is loaded.-->
          ui.start('#firebaseui-auth-container', uiConfig);       
-         
-         
-         var user = firebase.auth().currentUser;
-         firebase.auth().onAuthStateChanged(function(user) {
-                  if (user) {
-                  // User is signed in.
-                  } else {
-                  // No user is signed in.
-                  }
-         });
 </script>
 
 </body>
