@@ -42,13 +42,20 @@
                   const promise = auth.createUseWithEmailAndPassword(email.password);
                   promise.catch(e => console.log(e.message));
          });
-         
+
+         btnLogout.addEventListener('click', e => {
+          firebase.auth().signOut();
+         });
+      
+
          // Add a realtime listener
          firebase.auth().onAuthStateChanged(firebaseUser => {
           if(firebaseUser){
            console.log(firebaseUSer);
+           btnLogout.classList.remove('hide');
           } else {
            console.log('not logged in');
+           btnLogout.classList.add('hide');
           }
          });
 }());
