@@ -45,6 +45,7 @@
          <!--Authentication-->
          <!--Initialize the FirebaseUI Widget using Firebase.-->
          var ui = new firebaseui.auth.AuthUI(firebase.auth());
+         var database = firebase.database();
          
          var uiConfig = {
          callbacks: {
@@ -93,7 +94,7 @@
 
                            // Update successful.
 
-                           firebase.database().ref("/users/" + profile.uid).set({
+                           firebase.database().ref("/user/" + profile.uid).set({
                                     data:{
                                              country: "country-value",
                                              city: "city-value"
