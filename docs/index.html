@@ -83,6 +83,9 @@
                   //privacyPolicyUrl: '<your-privacy-policy-url>'
          };
          
+         <!--The start method will wait until the DOM is loaded.-->
+         ui.start('#firebaseui-auth-container', uiConfig);    
+            
          
          firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
 
@@ -106,8 +109,6 @@
          });
          
          
-         <!--The start method will wait until the DOM is loaded.-->
-         ui.start('#firebaseui-auth-container', uiConfig);    
 </script>
 
 </body>
