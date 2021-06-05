@@ -82,6 +82,29 @@
                   //privacyPolicyUrl: '<your-privacy-policy-url>'
          };
          
+         
+         firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+
+                  profile = firebase.auth().currentUser;
+
+                  profile.updateProfile({
+                           displayName: "name-value"
+                  }).then(function() {
+
+                           // Update successful.
+
+                           firebase.database().ref("/users/" + profile.uid).set({
+                                    data:{
+                                             country: "country-value",
+                                             city: "city-value"
+                                    }
+                           });
+                  });
+         }).catch(function(error) {
+                  // Handle Errors here.
+         });
+         
+         
          <!--The start method will wait until the DOM is loaded.-->
          ui.start('#firebaseui-auth-container', uiConfig);    
 </script>
