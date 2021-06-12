@@ -35,7 +35,6 @@
          
 <script>
          <!--initialize firebase-->
-         const firebase = require("firebase");
          var config = {
          apiKey: "AIzaSyBFpJ_jHiLPpl4HZckHefuj4_XJxSQTvlg",
          authDomain: "opensw-opener.firebaseapp.com",
@@ -47,7 +46,9 @@
          measurementId: "G-GCDBT9FVRL"
          };
          firebase.initializeApp(config);
-         firebase.analytics();
+         if (typeof self !== 'undefined' && typeof self.document !== 'undefined') {
+                  firebase.analytics()
+         }
  
          
          <!--Authentication-->
