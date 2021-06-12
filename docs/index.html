@@ -46,7 +46,6 @@
          firebase.initializeApp(config);
          firebase.analytics();
          
-         
          <!--Authentication-->
          <!--Initialize the FirebaseUI Widget using Firebase.-->
          var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -62,7 +61,6 @@
                            //const presers = document.getElementById('users');
                            //realtime database Create references
                            //const dbRefUsers = firebase.database().ref().child('users');
-                           
                            return true;
                   },
                   uiShown: function() {
