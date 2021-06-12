@@ -1,5 +1,5 @@
 <html>
-<!--210525 로그인(완) 닉네임(미완) 유저가 다운로드한 목록(미완)-->
+<!--210612 로그인(완) 디비 연결(미완) 닉네임(미완) 유저가 다운로드한 목록(미완)-->
 <head>
          <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
@@ -24,9 +24,12 @@
 <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
  
+         
 <!--Realtime Database-->         
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 <sscript src="store.js">
+
+<pre id="object"></pre>
          
 <script>
          <!--initialize firebase-->
