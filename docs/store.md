@@ -97,8 +97,8 @@
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
-                                    head.insertAdjacentHTML('afterend', '<a href="' + url + '" id="' + index + '"><p style="text-align:center;">' + itemRef.name + '</p></a>');                            
-                                    //<a href="https://github.com/pages-themes/architect/zipball/master" class="button"> <small>Download</small> .zip file</a>
+                                    head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="' + index + '">' + itemRef.name + '</a><br>');
+                                    //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
