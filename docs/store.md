@@ -36,22 +36,16 @@
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>             
-         
-      
-<!--Realtime Database-->         
-<!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
-<!--pre id="users"></pre-->
-         
-         
+                  
 <!--Authentication-->         
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
-<!--script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script-->
-<!--link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" /-->
          
- 
- <!--realtime database-->
- <script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-database.js"></script>
+<!--Realtime Database-->         
+<!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
+<!--pre id="users"></pre-->
+<!--Realtime Database-->
+<script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-database.js"></script>
          
          
 <script>
