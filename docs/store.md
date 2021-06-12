@@ -1,6 +1,6 @@
 <html>
-<!--210525 업로드(완) 다운로드(완)-->
-<!--210621 디비 연결(미완)-->
+<!--210525 upload(clear) download(clear)-->
+<!--210621 database()-->
 <head>  
          <base href="/">
          <h1><p style="text-align:center;">Welcome to welvi store</p></h1>
@@ -69,7 +69,7 @@
          const preOUsers = document.getElementById('users');
          <!--realtime database Create references-->
          const dbRefUsers = firebase.database().ref().child('users');
-         <!--realtime daatabase Sync users channes : 'value' event는 데이터베이스의 이 위치에서 변경이 있을때마다 함수 호출, callbach function이 호출됐을 때 event 실행 -->
+         <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
          dbRefUsers.on('value', snap => {   
                   console.log(snap.val());
                   preUsers.innerText = JSON.stringify(snap.val(), null, 3);
