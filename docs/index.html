@@ -46,10 +46,8 @@
          measurementId: "G-GCDBT9FVRL"
          };
          firebase.initializeApp(config);
-         if (typeof self !== 'undefined' && typeof self.document !== 'undefined') {
-                  firebase.analytics()
-         }
- 
+         firebase.analytics();
+         
          
          <!--Authentication-->
          <!--Initialize the FirebaseUI Widget using Firebase.-->
