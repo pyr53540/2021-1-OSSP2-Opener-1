@@ -35,6 +35,7 @@
          
 <script>
          <!--initialize firebase-->
+         const firebase = require("firebase");
          var config = {
          apiKey: "AIzaSyBFpJ_jHiLPpl4HZckHefuj4_XJxSQTvlg",
          authDomain: "opensw-opener.firebaseapp.com",
@@ -45,9 +46,8 @@
          appId: "1:1073815196228:web:429c5a2c3af05df4922211",
          measurementId: "G-GCDBT9FVRL"
          };
-         import * as firebase from "firebase";
          firebase.initializeApp(config);
-         const analytics = firebase.analytics();
+         firebase.analytics();
  
          
          <!--Authentication-->
