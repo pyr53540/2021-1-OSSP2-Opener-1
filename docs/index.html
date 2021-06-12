@@ -3,7 +3,7 @@
 <head>
          <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
-         <h1><p style="text-align:center;">Welcome to welvi store</p></h1>
+         <h1 id="login"><p style="text-align:center;">Welcome to welvi store</p></h1>
          <div id="firebaseui-auth-container"></div>
          <div id="loader">Loading...</div>
          
@@ -59,9 +59,9 @@
          // or whether we leave that to developer to handle.
                            
                            //realtime database Get elements
-                           const presers = document.getElementById('users');
+                           //const presers = document.getElementById('users');
                            //realtime database Create references
-                           const dbRefUsers = firebase.database().ref().child('users');
+                           //const dbRefUsers = firebase.database().ref().child('users');
                                                                               
                            return true;
                   },
