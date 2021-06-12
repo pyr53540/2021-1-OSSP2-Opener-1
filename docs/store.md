@@ -2,8 +2,8 @@
 <!--210525 업로드(완) 다운로드(완)-->
 <head>  
          <base href="/">
-         <!--meta charset="utf-8"-->
-         <meta charset="EUC-KR">
+         <meta charset="UTF-8" />
+         <!--meta charset="EUC-KR"-->
          <div id="head">theme list</div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
