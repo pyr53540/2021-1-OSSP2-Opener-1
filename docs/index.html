@@ -1,10 +1,10 @@
 <html>
-<!--210612 로그인(완) 디비 연결(미완) 닉네임(미완) 유저가 다운로드한 목록(미완)-->
+<!--teststore 로그인(완) 닉네임(미완) 유저가 다운로드한 목록(미완)-->
 <head>
          <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
          <base href="/">
-         <h1><p style="text-align:center;">Welcome to welvi store</p></h1
+         <h1><p style="text-align:center;">Welcome to welvi store</p></h1>
          <div id="firebaseui-auth-container"></div>
          <div id="loader">Loading...</div>
          
@@ -23,7 +23,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
- 
+
          
 <!--Realtime Database-->         
 <!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
@@ -62,7 +62,7 @@
                            //const presers = document.getElementById('users');
                            //realtime database Create references
                            //const dbRefUsers = firebase.database().ref().child('users');
-                                                                              
+                           
                            return true;
                   },
                   uiShown: function() {
@@ -74,6 +74,7 @@
          // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
                   signInFlow: 'popup',
                   signInSuccessUrl: 'teststore/store.html',
+                  //signInSuccessUrl: '<url-to-redirect-to-on-success>',
                   signInOptions: [
          // Leave the lines as is for the providers you want to offer your users.
          //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -83,7 +84,7 @@
                            //firebase.auth.EmailAuthProvider.PROVIDER_ID,
                            {
                                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                                    requireDisplayName: true
+                                    requireDisplayName: false
                            }
          //firebase.auth.PhoneAuthProvider.PROVIDER_ID
                   ]
@@ -94,7 +95,7 @@
          };
          
          <!--The start method will wait until the DOM is loaded.-->
-         ui.start('#firebaseui-auth-container', uiConfig);       
+         ui.start('#firebaseui-auth-container', uiConfig);    
 </script>
 
 </body>
