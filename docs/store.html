@@ -62,7 +62,6 @@
          };
          firebase.initializeApp(config);
          firebase.analytics; 
-         var database = firebase.database();
          
           <!-- download file-->
          var storage = firebase.storage();
@@ -110,8 +109,9 @@
                            }
                   });
          }).catch(function(error) {  });
+           
          
-                  
+         var database = firebase.database();
          <!--realtime database Get elements-->
          const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
          const themeList = document.getElementById('users/'+uid+'/themeList');
