@@ -37,6 +37,11 @@
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>             
          
+      
+<!--Realtime Database-->         
+<!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
+<pre id="users"></pre>
+         
          
 <!--Authentication-->         
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
@@ -58,8 +63,8 @@
          measurementId: "G-GCDBT9FVRL"
          };
          firebase.initializeApp(config);
-         firebase.analytics.Analytics; 
-         //firebase.analytics();
+         firebase.analytics; 
+         var database = firebase.database();
          
          
          <!--realtime database Get elements-->
