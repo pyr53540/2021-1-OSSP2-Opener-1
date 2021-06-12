@@ -69,8 +69,9 @@
          var listRef = storageRef.child('welvi/library');
          
          <!-- Find all the items.-->
-         var i=0;
+         var max=0;
          listRef.listAll().then(function(res) {
+                  var i=0;
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
                            itemRef.getDownloadURL().then(function(url) {
@@ -88,7 +89,7 @@
                                     xhr.onload = function(event) { var blob = xhr.response; };
                                     xhr.open('GET', url);
                                     xhr.send();
-                                    i++;
+                                    i++; max=i;
                                     });
                   }).catch(function(error) { 
                            // A full list of error codes is available at
@@ -115,7 +116,7 @@
          <!--realtime database Get elements-->
          const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
          const themeList = document.getElementById('users/'+uid+'/themeList');
-         for(var j=0; j<i; j++){
+         for(var j=0; j<max; j++){
                   var indexj = String(j);
                   <!--realtime database Create references-->
                   const dbRefTheme = firebase.database().ref().child('listNum'+indexj); // j 선언해야함
