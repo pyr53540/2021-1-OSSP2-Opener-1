@@ -62,18 +62,18 @@
          };
          firebase.initializeApp(config);
          firebase.analytics; 
-         var database = firebase.database();
+         //var database = firebase.database();
          
          
          <!--realtime database Get elements-->
-         const preOUsers = document.getElementById('users');
+         //const preOUsers = document.getElementById('users');
          <!--realtime database Create references-->
-         const dbRefUsers = firebase.database().ref().child('users');
+         //const dbRefUsers = firebase.database().ref().child('users');
          <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
-         dbRefUsers.on('value', snap => {   
-                  console.log(snap.val());
-                  preUsers.innerText = JSON.stringify(snap.val(), null, 3);
-         });
+         //dbRefUsers.on('value', snap => {   
+         //         console.log(snap.val());
+         //         preUsers.innerText = JSON.stringify(snap.val(), null, 3);
+         //});
          
           <!-- download file-->
          var storage = firebase.storage();
@@ -93,6 +93,7 @@
          
                                     head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="' + index + '">' + itemRef.name + '</a><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
+         
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
                                     xhr.onload = function(event) { var blob = xhr.response; };
