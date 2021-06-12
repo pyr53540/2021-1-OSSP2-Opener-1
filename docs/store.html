@@ -116,8 +116,9 @@
          const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
          const themeList = document.getElementById('users/'+uid+'/themeList');
          for(var j=0; j<i; j++){
+                  var indexj = String(j);
                   <!--realtime database Create references-->
-                  const dbRefTheme = firebase.database().ref().child('listNum'+j); // j 선언해야함
+                  const dbRefTheme = firebase.database().ref().child('listNum'+indexj); // j 선언해야함
                   <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
                   dbRefTheme.on('value', snap => {   
                            console.log(snap.val());
