@@ -61,10 +61,14 @@
          
          
          <!--realtime database Get elements-->
-         const preObject = document.getElementById('users');
+         const preOUsers = document.getElementById('users');
          <!--realtime database Create references-->
-         const dbRefObject = firebase.database().ref().child('users');
-                
+         const dbRefUsers = firebase.database().ref().child('users');
+         <!--realtime daatabase Sync users channes : 'value' event는 데이터베이스의 이 위치에서 변경이 있을때마다 함수 호출, callbach function이 호출됐을 때 event 실행 -->
+         dbRefUsers.on('value', snap => {   
+                  console.log(snap.val());
+                  preUsers.innerText = JSON.stringify(snap.val(), null, 3);
+         });
          
           <!-- download file-->
          var storage = firebase.storage();
