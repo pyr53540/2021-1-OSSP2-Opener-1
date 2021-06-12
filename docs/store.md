@@ -62,7 +62,7 @@
          };
          firebase.initializeApp(config);
          firebase.analytics; 
-         //var database = firebase.database();
+         var database = firebase.database();
          
          
          <!--realtime database Get elements-->
