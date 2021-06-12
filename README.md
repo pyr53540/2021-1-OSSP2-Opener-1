@@ -3,7 +3,8 @@
 <head>
          <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
-         <h1>Welcome to welvi store</h1>
+         <base href="/">
+         <h1 id="login"><p style="text-align:center;">Welcome to welvi store</p></h1>
          <div id="firebaseui-auth-container"></div>
          <div id="loader">Loading...</div>
          
