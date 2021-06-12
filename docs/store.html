@@ -42,10 +42,10 @@
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
          
 <!--Realtime Database-->         
-<!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
-<!--pre id="users"></pre-->
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+<pre id="users"></pre>
 <!--Realtime Database-->
-<script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-database.js"></script>
+<!--script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-database.js"></script-->
          
          
 <script>
@@ -64,25 +64,14 @@
          firebase.analytics; 
          var database = firebase.database();
          
-         
-         <!--realtime database Get elements-->
-         const preOUsers = document.getElementById('users');
-         <!--realtime database Create references-->
-         const dbRefUsers = firebase.database().ref().child('users');
-         <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
-         dbRefUsers.on('value', snap => {   
-                  console.log(snap.val());
-                  preUsers.innerText = JSON.stringify(snap.val(), null, 3);
-         });
-         
           <!-- download file-->
          var storage = firebase.storage();
          var storageRef = storage.ref();
          var listRef = storageRef.child('welvi/library');
          
          <!-- Find all the items.-->
+         var i=0;
          listRef.listAll().then(function(res) {
-                  var i=0;
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
                            itemRef.getDownloadURL().then(function(url) {
@@ -91,7 +80,7 @@
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
-                                    head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="' + index + '">' + itemRef.name + '</a><br>');
+                                    head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
                                     //<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>s
          
@@ -122,8 +111,19 @@
                   });
          }).catch(function(error) {  });
          
-         
-         <!--Realtime Database-->
+                  
+         <!--realtime database Get elements-->
+         const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
+         const themeList = document.getElementById('users/'+uid+'/themeList');
+         for(int j=0; j<i; j++){
+                  <!--realtime database Create references-->
+                  const dbRefTheme = firebase.database().ref().child('listNum'+j); // j 선언해야함
+                  <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
+                  dbRefTheme.on('value', snap => {   
+                           console.log(snap.val());
+                           themeList.innerText = JSON.stringify(snap.val(), null, 3);
+                  });
+         }
          
          
          <!-- get elements-->
