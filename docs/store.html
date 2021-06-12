@@ -91,8 +91,9 @@
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
-                                    head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="' + index + '">' + itemRef.name + '</a><br>');
+                                    head.insertAdjacentHTML('afterend', '<button type="button" onclick="' + url + '" id="' + index + '">' + itemRef.name + '</button><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
+                                    //<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>
          
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
