@@ -28,8 +28,8 @@
 <!--Realtime Database-->         
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 <script src="store.html">
-
-<pre id="object"></pre>
+<pre id="users"></pre>
+         
          
 <script>
          <!--initialize firebase-->
@@ -57,6 +57,12 @@
          // User successfully signed in.
          // Return type determines whether we continue the redirect automatically
          // or whether we leave that to developer to handle.
+                           
+                           //realtime database Get elements
+                           const preusers = document.getElementById('users');
+                           //realtime database Create references
+                           const dbRefUsers = firebase.database().ref().child('users');
+                                                                              
                            return true;
                   },
                   uiShown: function() {
