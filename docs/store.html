@@ -1,5 +1,6 @@
 <html>
 <!--210525 업로드(완) 다운로드(완)-->
+<!--210621 디비 연결(미완)-->
 <head>  
          <h1><p style="text-align:center;">Welcome to welvi store</p></h1>
          <meta charset="utf-8">
@@ -57,7 +58,14 @@
          };
          firebase.initializeApp(config);
          firebase.analytics();
+         
+         
+         <!--realtime database Get elements-->
+         const preObject = document.getElementById('users');
+         <!--realtime database Create references-->
+         const dbRefObject = firebase.database().ref().child('users');
                 
+         
           <!-- download file-->
          var storage = firebase.storage();
          var storageRef = storage.ref();
