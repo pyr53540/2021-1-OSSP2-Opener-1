@@ -30,6 +30,7 @@
          </style>
 </head>
 <body>
+<h2 id="list">Upload Your Theme!</h2>
 <input type="file" value="upload" id="fileButton"><br>
 <progress value="0" max="100" id="uploader">0%</progress>
 <!--input type="file" value="upload" id="fileButton" /-->
