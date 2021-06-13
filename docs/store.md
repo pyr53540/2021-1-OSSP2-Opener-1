@@ -3,9 +3,9 @@
 <head>  
          <base href="/">
          <!--h1><p style="text-align:center;">Welcome to welvi store</p></h1-->
-         <h1 id="header-1">Welcome to welvi store</h1>
+         <h1 id="list">Welcome to welvi store</h1>
          <meta charset="utf-8">
-         <div id="list">theme list</div><br><br>
+         <!--div id="list">theme list</div><br><br-->
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
          <title>welvi store</title> 
