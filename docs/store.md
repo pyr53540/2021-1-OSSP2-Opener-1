@@ -81,8 +81,8 @@
                                     i++;
                                     var index = String(i);
                                     
-                                    list.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br>');
-                                    //list.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
+                                    list.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br><br>');
+                                    //list.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
                                     //<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>s
                                     //<a href="https://github.com/pages-themes/hacker/zipball/master" class="btn">Download as .zip</a>
@@ -113,8 +113,6 @@
                            }
                   });
          }).catch(function(error) {  });
-         list.insertAdjacentHTML('afterend', '</section>');
-         //</section>
          
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
@@ -165,6 +163,10 @@
                            themeList.innerText = JSON.stringify(snap.val(), null, 3);
                   });
          }
+         
+         list.insertAdjacentHTML('afterend', '</section>');
+         //</section>
+         
          */
          /*
          <!--Firestore Database-->
