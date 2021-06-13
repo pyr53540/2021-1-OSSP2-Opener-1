@@ -29,8 +29,10 @@
                   }
          </style>
 </head>
+         
 <body>
 <h2 id="list">Upload Your Theme!</h2>
+<label className="theme-picker-view-toggle open" for="fileButton"></label>
 <input type="file" value="upload" id="fileButton"><br>
 <progress value="0" max="100" id="uploader">0%</progress>
 <!--input type="file" value="upload" id="fileButton" /-->
