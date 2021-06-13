@@ -70,8 +70,8 @@
          
          <!-- Find all the items.-->
          var i=-1;
-         var header-1 = document.getElementById('header-1');
-         header-1.insertAdjacentHTML('afterend', '<section id="downloads">');
+         var header = document.getElementById('header-1');
+         header.insertAdjacentHTML('afterend', '<section id="downloads">');
          //<section id="downloads">
         </section>
          listRef.listAll().then(function(res) {
@@ -82,7 +82,7 @@
                                     i++;
                                     var index = String(i);
                                     
-                                    header-1.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br>');
+                                    header.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br>');
                                     //head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
                                     //<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>s
@@ -114,7 +114,7 @@
                            }
                   });
          }).catch(function(error) {  });
-         header-1.insertAdjacentHTML('afterend', '</section>');
+         header.insertAdjacentHTML('afterend', '</section>');
          //</section>
          
          <!-- get elements-->
