@@ -69,14 +69,13 @@
          var listRef = storageRef.child('welvi/library');
          
          <!-- Find all the items.-->
-         var max=0;
+         var i=-1;
          listRef.listAll().then(function(res) {
-                  var i=0;
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
                            itemRef.getDownloadURL().then(function(url) {
                                     console.log('File available at', url);
-                                    
+                                    i++;
                                     var head = document.getElementById('head');
                                     var index = String(i);
          
@@ -89,7 +88,7 @@
                                     xhr.onload = function(event) { var blob = xhr.response; };
                                     xhr.open('GET', url);
                                     xhr.send();
-                                    i++; max=i;
+                                    //i++;
                                     });
                   }).catch(function(error) { 
                            // A full list of error codes is available at
@@ -110,24 +109,7 @@
                            }
                   });
          }).catch(function(error) {  });
-           
-         /*
-         var database = firebase.database();
-         <!--realtime database Get elements-->
-         const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
-         const themeList = document.getElementById('users/'+uid+'/themeList');
-         for(var j=0; j<max; j++){
-                  var indexj = String(j);
-                  <!--realtime database Create references-->
-                  const dbRefTheme = firebase.database().ref().child('listNum'+indexj); // j 선언해야함
-                  <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
-                  dbRefTheme.on('value', snap => {   
-                           console.log(snap.val());
-                           themeList.innerText = JSON.stringify(snap.val(), null, 3);
-                  });
-         }
-         */
-         
+
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
          var fileButton = document.getElementById('fileButton');
@@ -161,6 +143,44 @@
                   
                   );
          });
+                    
+         /*
+         var database = firebase.database();
+         <!--realtime database Get elements-->
+         const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
+         const themeList = document.getElementById('users/'+uid+'/themeList');
+         for(var j=0; j<max; j++){
+                  var indexj = String(j);
+                  <!--realtime database Create references-->
+                  const dbRefTheme = firebase.database().ref().child('listNum'+indexj); // j 선언해야함
+                  <!--realtime daatabase Sync users channes : 'value' event, callbach function -->
+                  dbRefTheme.on('value', snap => {   
+                           console.log(snap.val());
+                           themeList.innerText = JSON.stringify(snap.val(), null, 3);
+                  });
+         }
+         */
+         
+         <!--Firestore Database-->
+         var userEmail = "test1@test.com"// 임시값
+         var firestore = firebase.firestore();
+         const docRef = firestore.collection("user").doc(userEmail);
+         for(var j=0; j<i; j++) {
+                  var listNumber = "listNum"+String(j);
+                  const downloadButton = document.querySelector("#"+listNumber);
+                  downloadButton.addEventListener("click", function(){
+                           const listToDB = downloadButton.innerText;
+                           console.log("I am going to save "+listToDB+" to Firesotre");
+                           docRef.set({
+                                   userEmail : listToDB 
+                           }, { merge: true }).then(() => {
+                           console.log(listToDB+" successfully written!");
+                           })
+                           .catch((error) => {
+                           console.error("Error writing document: ", error);
+                           });
+                  })
+         }
 </script>
 </body>
         
