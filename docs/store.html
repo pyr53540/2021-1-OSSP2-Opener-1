@@ -167,7 +167,7 @@
          const docRef = firestore.collection("user").doc(userEmail);
          for(var j=0; j<i; j++) {
                   var listNumber = "listNum"+String(j);
-                  const downloadButton = document.getElementById('listNumber');
+                  const downloadButton = document.getElementById(listNumber);
                   downloadButton.addEventListener("click", function(){
                            const listToDB = downloadButton.innerText;
                            console.log("I am going to save "+listToDB+" to Firesotre");
