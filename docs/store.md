@@ -71,6 +71,9 @@
          
          <!-- Find all the items.-->
          var i=-1;
+         head.insertAdjacentHTML('afterend', '<section id="downloads">');
+         //<section id="downloads">
+        </section>
          listRef.listAll().then(function(res) {
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
@@ -79,10 +82,12 @@
                                     i++;
                                     var head = document.getElementById('head');
                                     var index = String(i);
-         
-                                    head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
+                                    
+                                    head.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br>');
+                                    //head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
                                     //<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>s
+                                    //<a href="https://github.com/pages-themes/hacker/zipball/master" class="btn">Download as .zip</a>
          
                                     const xhr = new XMLHttpRequest();
                                     xhr.responseType = 'blob';
@@ -110,7 +115,9 @@
                            }
                   });
          }).catch(function(error) {  });
-
+         head.insertAdjacentHTML('afterend', '</section>');
+         //</section>
+         
          <!-- get elements-->
          var uploader = document.getElementById('uploader');
          var fileButton = document.getElementById('fileButton');
