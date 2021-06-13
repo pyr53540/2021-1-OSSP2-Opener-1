@@ -1,8 +1,5 @@
 <html>
-<!--teststore 로그인(완) 닉네임(미완) 유저가 다운로드한 목록(미완)-->
 <head>
-         <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
          <base href="/">
          <h1><p style="text-align:center;">Welcome to welvi store</p></h1>
          <div id="firebaseui-auth-container"></div>
@@ -23,13 +20,6 @@
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
-
-         
-<!--Realtime Database-->         
-<!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
-<!--script src="teststore/store.html"-->
-<!--pre id="users"></pre-->
-         
          
 <script>
          <!--initialize firebase-->
@@ -51,52 +41,37 @@
          var ui = new firebaseui.auth.AuthUI(firebase.auth());
          
          var uiConfig = {
+         signInFlow: 'popup',
+         credentialHelper: 'none',
+         signInSuccessUrl: '/2021-1-OSSP2-Opener-1-1/store',
+         signInOptions: [
+         { 
+           provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+           requireDisplayName: true
+         },
+         ],
+
          callbacks: {
-                  signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-         // User successfully signed in.
-         // Return type determines whether we continue the redirect automatically
-         // or whether we leave that to developer to handle.
-                           
-                           //realtime database Get elements
-                           //const presers = document.getElementById('users');
-                           //realtime database Create references
-                           //const dbRefUsers = firebase.database().ref().child('users');
-                           return true;
+                  signInSuccessWithAuthResult: function(currentUser, credential, redirectUrl) {
+                  const userId = currentUser.uid; 
+                  loader.insertAdjacentHTML('afterend', '<input value="'+userId+'" type="text" hidden="hidden" id="userId" />');
+                  // Manually redirect.
+                  window.location.assign(`/users/${userId}`);
+                  // Do not automatically redirect.
+                  return true;
                   },
                   uiShown: function() {
-         // The widget is rendered.
-         // Hide the loader.
                            document.getElementById('loader').style.display = 'none';
-                  }
-         },
-         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-         signInFlow: 'popup',
-         signInSuccessUrl: 'teststore/store.html',
-         //signInSuccessUrl: '<url-to-redirect-to-on-success>',
-         signInOptions: [
-         // Leave the lines as is for the providers you want to offer your users.
-         //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-         //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-         //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-         //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                           //firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                  {
-                           provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                           //provider: firebase.firebase_.auth.EmailAuthProvider.PROVIDER_ID,
-                           requireDisplayName: true
-                  }
-         //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-         ]
-         // Terms of service url.
-                  //tosUrl: '<your-tos-url>',
-         // Privacy policy url.
-                  //privacyPolicyUrl: '<your-privacy-policy-url>'
+                 }
+         } 
          };
-         
-         <!--The start method will wait until the DOM is loaded.-->
+
          ui.start('#firebaseui-auth-container', uiConfig);    
 </script>
 
+</script>
+
+         
 </body>
         
 </html>
