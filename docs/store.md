@@ -50,10 +50,10 @@
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
          
 <!--Realtime Database-->         
-<!--script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script-->
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 <!--pre id="users"></pre-->
 <!--Realtime Database-->
-<!--script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-database.js"></script-->
+<script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-database.js"></script>
          
          
 <script>
@@ -156,7 +156,7 @@
                   );
          });
                     
-         /*
+         
          var database = firebase.database();
          <!--realtime database Get elements-->
          const uid = K0vWmATzYXfdLc1ZSfzncKVoSRB3; // 임시값
@@ -175,7 +175,7 @@
          list.insertAdjacentHTML('afterend', '</section>');
          //</section>
          
-         */
+         
          /*
          <!--Firestore Database-->
          var userEmail = "test1@test.com"// 임시값
