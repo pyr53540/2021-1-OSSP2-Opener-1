@@ -73,7 +73,6 @@
          var header = document.getElementById('header-1');
          header.insertAdjacentHTML('afterend', '<section id="downloads">');
          //<section id="downloads">
-        </section>
          listRef.listAll().then(function(res) {
                   res.items.forEach(function(itemRef) { 
                            console.log(itemRef);
