@@ -5,7 +5,7 @@
          <!--h1><p style="text-align:center;">Welcome to welvi store</p></h1-->
          <h1 id="header-1"><p style="text-align:center;">Welcome to welvi store</p></h1>
          <meta charset="utf-8">
-         <div id="head"><p style="text-align:center;">theme list</p></div><br>
+         <div id="list"><p style="text-align:center;">theme list</p></div><br>
          <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
          <link rel="shortcut icon" href="#">
          <title>welvi store</title> 
@@ -70,8 +70,8 @@
          
          <!-- Find all the items.-->
          var i=-1;
-         var header = document.getElementById('header-1');
-         header.insertAdjacentHTML('afterend', '<section id="downloads">');
+         var list = document.getElementById('list');
+         list.insertAdjacentHTML('afterend', '<section id="downloads">');
          //<section id="downloads">
          listRef.listAll().then(function(res) {
                   res.items.forEach(function(itemRef) { 
@@ -81,8 +81,8 @@
                                     i++;
                                     var index = String(i);
                                     
-                                    header.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br>');
-                                    //head.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
+                                    list.insertAdjacentHTML('afterend', '<a href="' + url + '" id="listNum' + index + '" class="btn">' + itemRef.name + '</a><br>');
+                                    //list.insertAdjacentHTML('afterend', '<a class="button" href="' + url + '" id="listNum' + index + '">' + itemRef.name + '</a><br>');
                                     //<a class="buttons" href="https://github.com/pages-themes/dinky/zipball/master">Download ZIP</a>
                                     //<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>s
                                     //<a href="https://github.com/pages-themes/hacker/zipball/master" class="btn">Download as .zip</a>
@@ -113,7 +113,7 @@
                            }
                   });
          }).catch(function(error) {  });
-         header.insertAdjacentHTML('afterend', '</section>');
+         list.insertAdjacentHTML('afterend', '</section>');
          //</section>
          
          <!-- get elements-->
