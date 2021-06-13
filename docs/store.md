@@ -32,8 +32,10 @@
          
 <body>
 <h2 id="list">Upload Your Theme!</h2>
-<label className="btn btn-primary" for="fileButton">upload</label>
-<input type="file" value="upload" id="fileButton" style="display:none"/><br>
+         <div class="theme-picker-view-toggle open" data-action="click:theme-picker#toggleFullPicker">
+          <label className="btn btn-primary" for="fileButton">upload</label>
+          <input type="file" value="upload" id="fileButton" style="display:none"/><br>
+        </div>
 <progress value="0" max="100" id="uploader">0%</progress>
 <!--input type="file" value="upload" id="fileButton" /-->
 <!--button class="btn btn-primary" type="submit" id="page-publish" data-action="click:theme-picker#onPublishClick">Select theme</button-->
