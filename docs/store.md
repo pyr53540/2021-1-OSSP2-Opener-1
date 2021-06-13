@@ -30,8 +30,11 @@
          </style>
 </head>
 <body>
+<input type="file" value="upload" id="fileButton"><br>
 <progress value="0" max="100" id="uploader">0%</progress>
-<input type="file" value="upload" id="fileButton" />
+<!--input type="file" value="upload" id="fileButton" /-->
+<!--button class="btn btn-primary" type="submit" id="page-publish" data-action="click:theme-picker#onPublishClick">Select theme</button-->
+<!--button class="btn btn-primary" type="submit" id="page-publish" data-action="click:theme-picker#onPublishClick">Select theme</button-->
          
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
