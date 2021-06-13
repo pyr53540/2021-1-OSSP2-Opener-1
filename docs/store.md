@@ -1,6 +1,5 @@
 <html>
 <!--210525 upload(clear) download(clear)-->
-<!--210621 database()-->
 <head>  
          <base href="/">
          <!--h1><p style="text-align:center;">Welcome to welvi store</p></h1-->
