@@ -172,7 +172,7 @@
                            const listToDB = downloadButton.innerText;
                            console.log("I am going to save "+listToDB+" to Firesotre");
                            docRef.set({
-                                   userEmail : listToDB 
+                                   downloadList : listToDB 
                            }, { merge: true }).then(() => {
                            console.log(listToDB+" successfully written!");
                            })
